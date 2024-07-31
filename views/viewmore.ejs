@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info_project</title>
+    <link rel="stylesheet"  href="/pdis.css">
+</head>
+<style>
+    .popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+<body>
+    <div id="inner-nav"></div>
+    <div id="container">
+        
+        <div style="margin-left: 100px;" id="info-cards">
+            
+            <div style="width: 40%;
+    margin-left: 22%;" class="card">
+                <p style="font-weight: 900;" class="tag">PROJECT NAME</p>
+                
+                    <p class="value"><%= proj_info[0].proj_name %></p>
+                    <p style="font-weight: 900;" class="tag">DESCRIPTION</p>
+                
+                    <p  class="value"><%= proj_info[0].proj_des %></p>
+
+                    <p style="font-weight: 900;" class="tag">SKILLS</p>
+                
+                    <p class="value">
+                        <ul>
+                            <% skills.forEach(skill => {%>
+                               <li><%=skill.skill%></li>
+                               <br> 
+                               <br>
+                           <% }); %>
+                        </ul>
+                    </p>
+
+                    <p style="font-weight: 900;" class="tag">PAY</p>
+                
+                    <p class="value">
+                        <% if( proj_info[0].proj_pay==0){%>
+                            <p>--does not pay--</p>
+                        <% } %>
+                        <% if( proj_info[0].proj_pay!=0){%>
+                            <p><%= proj_info[0].proj_pay %></p>
+                        <% } %>
+                    </p>   
+                    
+                    <p style="font-weight: 900;" class="tag">DURATION</p>
+                
+                    <p class="value"><%= proj_info[0].proj_dur %></p>
+                
+                    
+                    <a href="/rprofiledisp/<%= proj_info[0].username %>">VIEW RECRUITERS PROFILE</a>
+                <% if(key!='del'){%>
+                    <a onclick="myFunction()" href="/apply/<%= proj_info[0].proj_name %>/<%= un %>">APPLY</a>
+                    <div id="popup" class="popup">
+                        <div class="popup-content">
+                          
+                          <h2>APPLICATION SENT!!</h2>
+                          
+                        </div>
+                      </div>
+               <% } %>
+               
+                
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        function myFunction(){
+            var popup = document.getElementById('popup');
+            popup.style.display = "block";
+        }
+        window.onclick = function(event) {
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+}
+    </script>
+</body>
+</html>  

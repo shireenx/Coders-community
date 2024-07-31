@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+body{
+    background: white;
+}
+nav{
+    position: absolute;
+    top:0;
+    bottom:0;
+    height: 100%;
+    left:0;
+    background: aquamarine;
+    width:90px;
+    overflow: hidden;
+    transition: width 0.2% linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    border: solid;
+}
+
+.logo{
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+
+.logo img{
+    width:45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.logo span{
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+a{
+    position: relative;
+    color: rgb(85, 83, 83);
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+}
+
+.fas{
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+}
+.nav ul li a :hover{
+  background-color: #313139;
+}
+.nav-item{
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+}
+
+a:hover{
+    background: white;
+}
+nav:hover{
+    width: 300px;
+    transition: all 0.8s ease;
+}
+
+.logout{
+    position: absolute;
+    bottom: 0;
+}
+
+.buttons{
+  display:flex;
+}
+
+.buttons a#newPostBtn{
+      margin-left: 30px;
+}
+
+
+.menubar{
+    box-sizing: border-box;
+    background:#313139;
+    border-bottom: 1px solid whitesmoke;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 95px;
+    margin-top: -10px;
+    
+  }
+  .menubar ul{
+    color: aliceblue;
+    display: inline-flex;
+    list-style: none;
+    margin-right: 13%;
+   
+  }
+  .menubar ul li{
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
+  }
+  .menubar ul li a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+    bottom: 48px;
+    width: 113%;
+    border-radius: 30px;
+    background: aquamarine;
+    color: black;
+    border: solid azure;
+  }
+  .menubar ul li a:hover{
+    background-color: rgb(0, 255, 170);
+  }
+  
+
+.post li h2{
+  color: aquamarine;
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
+.post li p{
+  color: azure;
+  font-size: 20px;
+}
+
+.post button{
+  padding: 5px;
+  border-radius: 7px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border: solid aquamarine;
+}
+.post button:hover{
+  background: aquamarine;
+  border: solid azure;
+}
+
+  .accordion{
+    margin: 15px auto;
+    width: 600px;
+}
+.accordion li{
+    list-style: none;
+    width: 190%;
+    margin: 20px; 
+    padding: 10px;
+    border-radius: 8px;
+    background: #313139;
+    
+}
+
+.accordion li label{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+label::before{
+    content: '+';
+    margin-right: 10px;
+    font-size: 24px;
+    font-weight: 600;
+} 
+
+input[type="radio"]{
+    display: none;
+}
+
+.accordion .content{
+    color: #555;
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+}
+.accordion input[type="radio"]:checked + label + .content{
+    max-height: fit-content;
+    padding: 10px 10px 20px;
+}
+
+.content a.edit{
+    background-color: darkseagreen;
+    border-radius: 3px;
+    margin-left: 43.5%;
+    padding-block: 11px;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-decoration: none;
+    color: aliceblue;
+}
+.content a.edit:hover{
+    background-color: rgb(38, 69, 38);
+}
+
+
+ .post{
+  padding-right: 50%;
+ }
+
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    
+    margin-left: 17%;
+    overflow-y: scroll;
+    height: 537px;
+    overflow-x: hidden;
+  }
+
+  .notif{
+    background-color: #e3edf7;
+    margin-left: 79%;
+    margin-top: -36%;
+    /* margin-right: 0%; */
+    height: 500px;
+  }
+
+  .notif_name li{
+    padding: 20px;
+    background: white;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #444;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  p,
+  input,
+  textarea {
+    margin-bottom: 20px;
+  }
+  
+  small {
+    display: block;
+    margin-bottom: 20px;
+    color: #888;
+  }
+  
+  a#newPostBtn{
+    background: lightsteelblue;
+    border-radius: 10px;
+    width: fit-content;
+  }
+
+  .search {
+    position: absolute;
+    top:0;
+    bottom:0;
+    height: 100%;
+    left:80%;
+    background: whitesmoke;
+    width:300px;
+    overflow: hidden;
+    transition: width 0.2% linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+input{
+    height: 40px;
+    width: 209px;
+    margin-top: 32px;
+    margin-left: 26px;
+}
+
+
+

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="stylesheet" href="/rmain.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+         .navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+
+  height: 100%;
+    background: aquamarine;
+    margin-top: 94px;
+    width: 20%;
+}
+.label{
+    position: fixed;
+    top: -54px;
+    right: 0;
+    padding: 10px;
+    height: 6%;
+    background: #eee;
+    margin-top: 94px;
+    /* width: 20%; */
+    width: 270px;
+    border-radius: 20px;
+
+}
+.label p{
+    padding-left: 64px;
+}
+.navbar li {
+  
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  
+    border-radius: 5px;
+    border-bottom-style: solid;
+    margin-bottom: 30px;
+    
+}
+
+.navbar li a{
+    background: cadetblue;
+    width: fit-content;
+    border-radius: 15px;
+    color: white;
+    margin-right: 5px;
+}
+
+.navbar li a:hover{
+    background: rgb(157, 200, 201);
+    
+    color: white;
+}
+
+.navbar li:hover {
+  background-color:#fff;
+}
+.filter input{
+    text-indent:20px;
+}
+form button{
+    margin-left: 30px;
+    padding: 9px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+form button:hover{
+    background: black;
+    color: #fff;
+    margin-left: 30px;
+    padding: 9px;
+    border-radius: 20px;
+}
+.filter form input{
+    border-radius: 20px;
+    margin-left: -224px;
+    height: 40px;
+    width: 209px;
+    margin-top: 32px;
+
+}
+.filter form a{
+    margin-top: -59px;
+    width: max-content;
+    background: whitesmoke;
+    border-radius: 20px;
+    margin-left: 140px;
+}
+.filter form a:hover{
+    background: black;
+    color: #fff;
+}
+    </style>
+</head>
+<body>
+    <div class="menubar">
+        <div class="logo"> <img src="logo.png" alt="Logo"></div>
+<ul>
+     
+   
+        
+        <div class="filter">
+            <form style="margin-top: -43px;" action="/<%= un %>/filter_skill" method="post">
+                <input type="text" placeholder="Search By Skill" name="skill">
+                <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                  </svg></button></li>
+                  
+                </form>
+                
+        </div>
+        
+
+   
+</ul>
+</div>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="">
+                    <span class ="nav-item">CODERS COMMUNITY</span>
+                </a>
+            </li>
+            <li><a href="#">
+                <i class ="fas fa-home"></i>
+                <span class="nav-item">Home</span>
+            </a></li>
+            <li><a href="/cprofiledisp/<%= un %>">
+                <i class ="fas fa-user"></i>
+                <span class="nav-item">Profile</span>
+            </a></li>
+            
+            
+            
+            <li><a href="#" class="logout">
+                <i class ="fas fa-sign-out-alt"></i>
+                <span class="nav-item">Log-Out</span>
+            </a></li>
+        </ul>
+    </nav>
+    <div  class="container">
+        
+        
+        
+        <ul class="accordion"> <% var i=0 %>
+
+            <% if(info.length===0){%>
+                <h1>PROJECTS NOT FOUND</h1>
+            <%} %>
+            <% for(var i=0;i<info.length;i++){ %>
+                <div class="post">
+                    <li>
+                        <p style="font-size: 20px;"><b><%= info[i].proj_name %></b></p>
+                        <p>pay: <%= info[i].proj_pay %></p>
+                        <div><p>duration: <%= info[i].proj_dur %></p></div>
+                        
+                                <form action="/viewmore/<%= info[i].proj_name%>/<%= key %>/<%= un %>" method="post">
+                                    <button type="submit">VIEW MORE</button>
+                                </form>
+                            
+                        </div>
+                      
+                       
+                    </li>
+                
+             
+             <% } %> 
+
+            </div>
+                   
+        </ul>
+   
+    </div>
+    
+    
+    <div class="navbar">
+        <div class="label">
+            <p>YOUR PROJECTS</p>
+        </div>
+        <% if(notifications){%>
+            <%for(var i=0;i<notifications.length;i++){%>
+            <li >
+                <p><%= notifications[i].proj_name %></p>
+                <header>
+                    <a href="#">VIEW PROJECT</a>
+                    
+                </header>
+                
+            </li>
+            <%}%>
+       <% } %>
+
+       <% if(notifications.length===0){%>
+        <h2>NO PROJECTS</h2>
+        
+        
+        <%}%>
+        
+   
+  </div>
+
+</body>
+</html>

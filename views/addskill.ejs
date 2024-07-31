@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createpost-addskill</title>
+    <link rel="stylesheet" href="/createposts.css">
+    <link rel="stylesheet"
+          href=
+"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src=
+"//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <style>
+       
+       body {
+    align-items: center;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+        #rowAdder {
+            margin-left: 17px;
+        }
+li{
+    background: black;
+    width: 24%;
+    height: 41%;
+}
+        .create{
+            width: fit-content;
+            border: solid white;
+        }
+        button#rowAdder.btn.btn-dark{
+            margin-top: 29px;
+    background: aquamarine;
+    color: black;
+    font-weight: 700;
+        }
+        button#rowAdder.btn.btn-dark:hover{
+            background: rgb(80, 234, 139);
+        }
+    </style>
+
+
+</head>
+<body>
+    <li>
+       
+        <div class="create" style="width:fit-content;">
+            <form action="/addskill1/<%= pk %>/<%= un %>" method="post">
+                <div class="title">enter skills</div>
+                <div class="">
+                    <div class="col-lg-12">
+                        <div id="row">
+                            <div class="input-group m-3">
+                                
+                                </div>
+                                <input type="text" name="skill"  class="form-control m-input">
+                            </div>
+                        </div>
+     
+                        <div id="newinput"></div>
+                        <button  id="rowAdder" type="submit" class="btn btn-dark">
+                            <span class="bi bi-plus-square-dotted">
+                            </span> ADD
+                        </button>
+                    </div>
+                </div>
+                
+            </form>
+            
+    
+        </div>
+    
+    </li>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet"  href="/pdis.css">
+</head>
+<body>
+    
+        <div id="inner-nav"></div>
+    <div id="container">
+        <div id="profile">
+           <h4>NAME</h4>
+            <p id="name"><%= objc[0].username %><br><span id="email"><%= objc[0].email %></span></p>
+            <h4>PROJECT LINKS</h4>
+            
+                <p><%=objc[0].pw %></p>
+            
+           
+            <hr width="100%">
+            <div id="about">
+                <p>SKILL SET</p>
+            </div>
+            <p>
+                <p><%=objc[0].skills %></p>
+            </p>
+        </div>
+        <div id="info-cards">
+            <div class="card">
+                <h4>WORK EXPERIENCE</h4>
+                <p><%= objc[0].workexp %></p>
+            </div>
+            <div class="card">
+                <h4>COURSES AND TRAININGS</h4>
+                <p><%=objc[0].tc %></p>
+            </div>
+            <div class="card">
+                <h4>PROJECTS</h4>
+                <p><%=objc[0].projects %></p>
+            </div>
+            <div class="card">
+                <p>EDUCATION</p>
+                <p><%= objc[0].education %></p>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

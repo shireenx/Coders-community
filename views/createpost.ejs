@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewPost</title>
+    <link rel="stylesheet" href="/createposts.css">
+    <link rel="stylesheet"
+          href=
+"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href=
+"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src=
+"//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <style>
+       
+       body {
+    align-items: center;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+        #rowAdder {
+            margin-left: 17px;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+
+    
+    <li><div class="form">
+        <form action="/dessubmit/<%= un %>"  method="post">
+            <div class="title">Welcome</div>
+            <div class="subtitle">Let's create your post!</div>
+            
+            <div class="input-container ic1">
+              <input id="name" class="input" name="proj_name" type="text" placeholder=" " />
+              <div class="cut"></div>
+              <label for="name" class="placeholder">Name of Project</label>
+            </div>
+    
+            <div class="input-container ic1" >
+                <textarea id="des" class="input" name="proj_des" rows="10" cols="50"></textarea>
+                <div class="cut"></div>
+                <label for="des" class="placeholder">Project Description</label>
+              </div>
+            
+              <div class="input-container ic1">
+                <input id="pay" class="input" name="proj_pay" type="number" placeholder=" " />
+                <div class="cut"></div>
+                <label for="pay" class="placeholder">Enter pay(ENTER 0 IF NOT PAYING)</label>
+              </div>
+    
+              <div class="input-container ic1">
+                <input id="dur" class="input" name="proj_dur" type="text" placeholder=" " />
+                <div class="cut"></div>
+                <label for="dur" class="placeholder">Duration of Project</label>
+              </div>
+        
+
+        <button type="submit"  class="submit" value="form">PROCEED</button>
+    </form>
+      </div>
+   
+    </li>
+
+
+    
+
+    </div>
+ 
+</body>
+</html>
+

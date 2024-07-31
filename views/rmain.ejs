@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="stylesheet" href="/rmain.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        /* Popup container - can be anything you want */
+        .popup {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+         
+          user-select: none;
+        }
+        
+        /* The actual popup */
+        .popup .popuptext {
+          visibility: hidden;
+          width: 350px;
+          background-color: #555;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 28px 0;
+          position: absolute;
+          z-index: 1;
+          bottom: 125%;
+          left: 50%;
+          margin-left: 62px;
+          opacity: 0.97;
+          height: 96px;
+        }
+
+        .no-toggle{
+           
+        }
+        
+        /* Popup arrow */
+        
+        
+        /* Toggle this class - hide and show the popup */
+        .popup .show {
+          visibility: visible;
+          
+        }
+        
+        /* Add animation (fade in the popup) */
+        
+        .navbar {
+          position: fixed;
+    top: 18px;
+    right: 0;
+    padding: 10px;
+    height: 100%;
+    background: aquamarine;
+    margin-top: 94px;
+    width: 20%;
+    border: solid;
+}
+
+.navbar li {
+  
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  
+    border-radius: 5px;
+    border-bottom-style: solid;
+    margin-bottom: 30px;
+    
+}
+
+.navbar li a{
+    background: cadetblue;
+    width: fit-content;
+    border-radius: 15px;
+    color: white;
+    margin-right: 5px;
+}
+
+.navbar li a:hover{
+    background: rgb(157, 200, 201);
+    
+    color: white;
+}
+
+.navbar li:hover {
+  background-color:#fff;
+}
+
+.content {
+  margin-top: 50px; /* Adjust according to navbar height */
+  padding: 20px;
+}
+
+header{
+    display: flex
+}
+
+h1 {
+  color: #333;
+}
+
+p {
+  color: #666;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+}
+
+.label{
+    position: fixed;
+    top: -54px;
+    right: 0;
+    padding: 10px;
+    height: 6%;
+    background: aquamarine;
+    margin-top: 94px;
+    /* width: 20%; */
+    width: 305px;
+    border-radius: 4px;
+    border: solid azure;
+    
+
+}
+.label p{
+    padding-left: 64px;
+    color: black;
+    font-weight: 700;
+    letter-spacing: 4px;
+
+}
+
+
+        </style>
+</head>
+<body>
+    <div class="menubar">
+        <div class="logo"> <img src="logo.png" alt="Logo"></div>
+<ul>
+    
+    <li><a href="/newpost/<%= un %>">NEW POST</a></li>
+    <li><a href="/mypost/<%= un %>">MY POST</a></li>  
+</ul>
+</div>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="logo">
+                    <span class ="nav-item">CODERS COMMUNITY</span>
+                </a>
+            </li>
+            <li><a href="#">
+                <i class ="fas fa-home"></i>
+                <span class="nav-item">Home</span>
+            </a></li>
+            <li><a href="/rprofiledisp/<%= un %>">
+                <i class ="fas fa-user"></i>
+                <span class="nav-item">Profile</span>
+            </a></li>
+            
+            <li><a href="/" class="logout">
+                <i class ="fas fa-sign-out-alt"></i>
+                <span class="nav-item">Log-Out</span>
+            </a></li>
+        </ul>
+    </nav>
+    
+    <div  class="container">
+        
+        
+        
+        <ul class="accordion"> <% var i=0 %>
+            <% if(key=='del'){ %>
+                <% if(info.length==0){%>
+                    <div style="color: black; text-align: center;" class="accordion">
+                        <p>NO POSTS</p>
+                        <a style="color: rgb(21, 114, 75); margin-left: 25%; font-weight: bolder;" href="/newpost/<%= un %>">CREATE ONE</a>
+                    </div>
+                <%} %>
+                <% } %>
+            
+            <% for(var i=0;i<info.length;i++){ %>
+                <div class="post">
+                    <li>
+                        <h2 style="font-size: 20px;"><b><%= info[i].proj_name %></b></h2>
+                        <p>pay: <%= info[i].proj_pay %></p>
+                        <div><p>duration: <%= info[i].proj_dur %></p></div>
+                        <% if(key=='del'){ %>
+
+                            
+                                
+                                    <form action="/del/<%= info[i].proj_name %>" method="post">
+                                        <button type="submit">DELETE</button>
+                                        
+                                    </form>
+                              
+                                
+                                
+                                <form action="/viewmore/<%= info[i].proj_name %>/<%= key %>/<%= un %>" method="post">
+                                    <button type="submit">VIEW MORE</button>
+                                </form>
+                            
+                       
+                       <% } %>
+                       <% if(key!='del'){ %>
+                       <form action="/viewmore/<%= info[i].proj_name %>/<%= key %>/<%= un %>" method="post">
+                        <button type="submit">VIEW MORE</button>
+                    </form>
+                    <% } %>
+                    </li>
+                </div>
+             
+             <% } %> 
+
+             
+                   
+        </ul>
+   
+    </div>
+    
+    
+      
+
+
+      <div class="navbar">
+        <div class="label">
+          <p>YOUR PROJECTS</p>
+      </div>
+        <% if(applications){%>
+            <%for(var i=0;i<applications.length;i++){%>
+            <li >
+                <p><%= applications[i].proj_name %></p>
+                <p><%= applications[i].col_name %></p>
+                <header>
+                    <a href="/cprofiledisp/<%= applications[i].col_name %>">DETAILS</a>
+                    <a onclick="myFunction2()" href="/approve/<%= applications[i].col_name %>/<%= applications[i].proj_name %>">APPROVE</a>
+                    <div id="popup2" class="popup">
+                      <div class="popup-content">
+                        
+                        <h2>RECRUITED!</h2>
+                        
+                      </div>
+                    </div>
+                    <form action="/del/<%= applications[i].proj_name %>/<%= applications[i].col_name %>" method="get"></form>
+                    <a onclick="myFunction()" href="/del/<%= applications[i].proj_name %>/<%= applications[i].col_name %>">REJECT</a>
+                    <div id="popup" class="popup">
+                        <div class="popup-content">
+                          
+                          <h2>REJECTED!</h2>
+                          
+                        </div>
+                      </div>
+                </header>
+                
+            </li>
+            <%}%>
+       <% } %>
+       
+       <% if(applications.length==0){%>
+        <h2>NO APPLICATIONS</h2>
+   <% } %>
+   
+      </div>
+      
+      
+      
+      <script>
+        function myFunction(){
+            var popup = document.getElementById('popup');
+            popup.style.display = "block";
+        }
+        window.onclick = function(event) {
+  if (event.target == popup) {
+    popup.style.display = "none";
+    window.location.reload();
+}
+  }
+
+  function myFunction2(){
+            var popup2 = document.getElementById('popup2');
+            popup2.style.display = "block";
+        }
+        window.onclick = function(event) {
+  if (event.target == popup2) {
+    popup2.style.display = "none";
+    window.location.reload();
+}
+  }
+  
+
+    </script>
+        
+</body>
+</html>

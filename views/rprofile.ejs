@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/profsubmit/<%= un %>" method="post">
+        <h1>Welcome, Lets create your profile</h1>
+        
+        <ul >
+            <li>
+                <li>
+                    <h2>
+                        <label for="rec_type">Select a category for Recruitertype</label>
+                            <input list="rec_type" name="rec_type" placeholder="select from drop down menu" /></label>
+                            <datalist id="rec_type">
+                              <option value="company">
+                              <option value="start-up">
+                                <option value="student/solo">
+                                
+                            </datalist>
+                    </h2>
+                  </li>
+            </li>
+            
+
+            <li>
+                <h2>
+                  <label for="Aboutyou">About You</label>
+                  <textarea name="Aboutyou" 
+                                placeholder="" 
+                                cols="40" rows="3"
+                                title=""> 
+               </textarea> 
+                </h2>
+              </li>
+              <li>
+                <h2>
+                  <label for="work_categ">What category of work are you looking for</label>
+                  <textarea name="work_categ" 
+                                placeholder="" 
+                                cols="40" rows="3"
+                                title=""> 
+               </textarea> 
+                </h2>
+              </li>
+              <li>
+                <h2>
+                  <label for="work_experience">Enter Your Work Experience</label>
+                  <textarea name="work_experience" 
+                                placeholder="Work Experience" 
+                                cols="40" rows="3"
+                                title="Enter Your Work Experience"> 
+               </textarea> 
+                </h2>
+              </li>
+              <li>
+                <h2>
+                  <label for="previousprojects">Enter Your previousprojects and github links</label>
+                  <textarea name="previousprojects" 
+                                placeholder="" 
+                                cols="40" rows="3"
+                                title=""> 
+               </textarea> 
+                </h2>
+              </li>
+              <li>
+                <h2>
+                  <label for="currprojects">Tell us about on-going projects</label>
+                  <textarea name="currprojects" 
+                                placeholder="" 
+                                cols="40" rows="3"
+                                title=""> 
+               </textarea> 
+                </h2>
+              </li>
+
+              <li>
+                <h2>
+                  <label for="Sociallinks">Sociallinks</label>
+                  <textarea name="Sociallinks" 
+                                placeholder="" 
+                                cols="40" rows="3"
+                                title=""> 
+               </textarea> 
+                </h2>
+              </li>
+
+              <li>
+                <h2>
+                  <label for="paying">Do you plan to pay the Collaborators?</label>
+                  <input list="paying" name="paying" placeholder="select from drop down menu" /></label>
+                  <datalist id="paying">
+                    <option value="Yes">
+                    <option value="No">
+                      <option value="Depends on the project">
+                      
+                  </datalist>
+                </h2>
+              </li>
+
+        </ul>
+        <button type="text" class="submit">submit</button>
+    </form>
+      </div>
+
+    
+</body>
+</html>
